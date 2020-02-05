@@ -1,0 +1,3 @@
+$all		db.movies.find({"key":{$all:["value", "value"]}})
+$elemMatch	db.movies.find({"key":{$elemMatch:{"key":"value","key":"value"}}})
+$size		db.movies.find({"key":{$size:1}})

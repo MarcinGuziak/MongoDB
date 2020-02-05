@@ -1,0 +1,10 @@
+mongo --nodb		# wersja MongoDB
+
+quit()
+
+show dbs
+show collections
+
+use db_name
+
+load("plik.js")		# wgranie pliku .js (podczas połączenia z klastrem w danym folderze)

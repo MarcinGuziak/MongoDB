@@ -1,0 +1,14 @@
+Cluster / Database / Collection / Document
+
+Object / Array
+
+namespace	# database.collection
+
+query language	# JSON (JavaScript Object Notation)
+{"key":"value"}
+
+CRUD		# Create Read Update Delete
+
+cursor		# część wyników, które zwraca nam zapytanie w bazie (np. po 20 sztuk)
+
+projection	# wyniki wyszukiwania ograniczone do tylko pewnych wartości

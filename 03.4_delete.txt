@@ -1,0 +1,11 @@
+deleteOne
+
+db.movies.deleteOne(
+	{"key":"value"}
+	)
+
+deleteMany
+
+db.movies.deleteMany(
+	{"key":"value"}
+	)

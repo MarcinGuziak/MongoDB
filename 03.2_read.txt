@@ -1,0 +1,9 @@
+find
+
+db.movies.find(
+	{"key":"value"},
+	{"key":"value"},
+	{"key":1}		#projection - ograniczenie wyświetlanych danych
+	)
+	.count()
+	.pretty()

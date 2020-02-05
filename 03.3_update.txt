@@ -1,0 +1,23 @@
+updateOne
+
+db.movies.updateOne(
+	{"key":"value"},
+	{$set:
+		{"key":"value"}
+	}
+	{upsert:true}				# jeżeli warunek nie będzie spełniony, dodatkowy rekord zostanie utworzony
+	)
+
+updateMany
+
+db.movies.updateMany(
+	{"key":"value"},
+	{$set:
+		{"key":"value"}
+	}
+	)
+
+replaceOne
+db.movies.replaceOne(				# zamiana tylko pierwszego znalezionego rekordu
+	{"key":"value", zmienna_z_danymi}
+	)

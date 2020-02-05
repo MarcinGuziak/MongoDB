@@ -1,0 +1,3 @@
+$set		# wstawienie/aktualizacja wartości
+$unset		# usunięcie wartości
+$push		# tworzy tablicę

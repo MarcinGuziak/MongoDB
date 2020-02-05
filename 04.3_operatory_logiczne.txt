@@ -1,0 +1,4 @@
+$and		db.movies.find($and:[{"key":"value"},{"key":"value"}])	# zastosowanie w przypadku dwukrotnego wyszukania tego samego klucza
+$or		db.movies.find($or:[{"key":"value"},{"key":"value"}])
+$not
+$nor

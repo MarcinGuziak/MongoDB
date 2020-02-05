@@ -1,0 +1,4 @@
+$mod
+$text
+$where
+$regex		db.movies.find({"key":{$regex: /^Won .*/}})

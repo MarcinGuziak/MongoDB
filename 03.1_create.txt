@@ -1,0 +1,15 @@
+insertOne
+
+db.movies.insertOne(
+	{"key":"value"}
+	)
+
+insertMany
+
+db.movies.insertMany(
+	[
+	{"key":"value"},
+	"key":"value"}
+	],
+	{"ordered":false}	#wykonanie wszystkich operacji mimo insertów powodujących błędy np. powtarzające się _id
+	)
