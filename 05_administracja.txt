@@ -1,1 +1,46 @@
-mongod		# główny daemon MongoDB
+use admin
+db.shutdownServer()			# zamknięcie mongo
+exit					# zamknięcie mongod
+
+// mongod
+
+--help					# wszystkie parametry
+
+--config "/etc/mongod.conf"
+-f"/etc/mongod.conf"
+
+--auth					# autoryzacja
+--bind_ip "192.0.0.1,192.0.0.2"		# dozwolone numery ip
+--dbpath ARG				# ścieżka bazy danych
+--fork					# mongod działa jako deamon, nie blokuje powłoki (wymagane --logpath lub --syslog)
+--logpath ARG				# ścieżka pliku log
+--port ARG				# numer portu do nasłuchiwania (27017)
+
+YAML					# YAML Ain't Markup Language
+
+storage:
+  dbPath: "/data/db"
+systemLog:
+  path: "/data/log/mongod.log"
+  destination: "file"
+replication:
+  replSetName: "M103"
+net:
+  bindIp: "127.0.0.1,192.168.103.100"
+ssl:
+  mode: "requireSSL"
+  PEMKeyFile: "/etc/ssl/ssle.pem"
+  CAFile: "/etc/ssl/SSLCA.pem"
+tls:
+  mode: "requireTLS"
+  certificateKeyFile: "/etc/tls/tls.pem"
+  CAFile: "/etc/tls/TLSCA.pem"
+security:
+  keyFile: "/data/keyfile"
+processManagement:
+  fork:true
+
+// mongo
+
+--eval ARG
+--host 192.0.0.1:123			# dozwolony host z portem
