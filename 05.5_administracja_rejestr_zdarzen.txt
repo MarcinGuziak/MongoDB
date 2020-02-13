@@ -1,0 +1,35 @@
+db.getLogComponents()
+db.adminCommand({"getLog":"global"})
+db.setLogLevel(0,"komponent")
+
+/ Poziomy widoczności
+
+-1	# wartość od rodzica
+0	# podstawowe informacje
+1-5
+
+/ Poziomy ostrości zdarzenia
+
+F	# Fatal
+E	# Error
+W	# Warning
+I	# Informational
+D	# Debug
+
+/ Komponenty
+
+ACCESS
+COMMAND
+CONTROL
+FTDC
+GEO
+INDEX
+JOURNAL
+NETWORK
+QUERY
+REPL
+REPL_HB
+ROLLBACK
+SHARDING
+STORAGE
+WRITE

@@ -1,0 +1,8 @@
+db.getProfilingLevel()
+
+0	# wyłączone
+1	# włączone, ale tylko wolne operacje (100ms)
+2	# włączone, wszystkie operacje
+
+db.setProfilingLevel(1,{slowms:0})
+db.system.profile.find().pretty()

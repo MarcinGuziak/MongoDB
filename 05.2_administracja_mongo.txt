@@ -1,0 +1,2 @@
+--eval ARG
+--host 192.0.0.1:123			# dozwolony host z portem

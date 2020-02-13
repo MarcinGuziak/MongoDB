@@ -1,0 +1,11 @@
+--help					# wszystkie parametry
+
+--config "/etc/mongod.conf"
+-f"/etc/mongod.conf"
+
+--auth					# autoryzacja
+--bind_ip "192.0.0.1,192.0.0.2"		# dozwolone numery ip
+--dbpath ARG				# ścieżka bazy danych
+--fork					# mongod działa jako deamon, nie blokuje powłoki (wymagane --logpath lub --syslog)
+--logpath ARG				# ścieżka pliku log
+--port ARG				# numer portu do nasłuchiwania (27017)

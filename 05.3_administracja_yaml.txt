@@ -1,0 +1,49 @@
+YAML					# YAML Ain't Markup Language
+
+storage:
+  dbPath: "/data/db"
+systemLog:
+  path: "/data/log/mongod.log"
+  destination: "file"
+replication:
+  replSetName: "M103"
+net:
+  bindIp: "127.0.0.1,192.168.103.100"
+ssl:
+  mode: "requireSSL"
+  PEMKeyFile: "/etc/ssl/ssle.pem"
+  CAFile: "/etc/ssl/SSLCA.pem"
+tls:
+  mode: "requireTLS"
+  certificateKeyFile: "/etc/tls/tls.pem"
+  CAFile: "/etc/tls/TLSCA.pem"
+security:
+  keyFile: "/data/keyfile"
+processManagement:
+  fork:true
+
+storage:
+  dbPath: "/data/db"
+systemLog:
+  path: "/data/logs/mongod.log"
+  destination: "file"
+net:
+  bindIp : "127.0.0.1,192.168.103.100"
+  port: 27000
+security:
+  authorization: enabled
+processManagement:
+  fork: true
+
+storage:
+  dbPath: "/var/mongodb/db/"
+systemLog:
+  path: "/data/logs/mongod.log"
+  destination: "file"
+net:
+  bindIp : "127.0.0.1,192.168.103.100"
+  port: 27000
+security:
+  authorization: enabled
+processManagement:
+  fork: true

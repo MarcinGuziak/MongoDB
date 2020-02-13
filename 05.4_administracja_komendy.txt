@@ -1,0 +1,25 @@
+db.<method>()				# data base
+db.collection.<method>()
+rs.<method>()				# replica set
+sh.<method>()				# sharded cluster
+
+/ User Management
+
+db.createUser()
+db.dropUser()
+
+/ Collection Management
+
+db.renameCollection()
+db.collection.createIndex()
+db.collection.drop()
+
+/ Database Management
+
+db.dropDatabase()
+db.createCollection()
+
+/ Database Status
+
+db.serverStatus()
+db.getLogComponents()
