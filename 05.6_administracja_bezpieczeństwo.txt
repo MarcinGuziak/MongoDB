@@ -1,0 +1,32 @@
+zapytanie + odpowiedź + poświadczenie -> autoryzacja
+
+poświadczenie (kim jesteś?) + autoryzacja (co możesz zrobić?)
+
+Poświadczenie (authentication) poprzez klienta:
+- SCRAM - Salted Challenge Response Authentication Mechanism np. hasło (Community & Enterprise)
+- X.509 - certyfikat (Community & Enterprise)
+- LDAP - Lightweight Directory Access Protocol (Enterprise)
+- KERBEROS (Enterprise)
+
+Poświadczenie za pomocą klastra
+
+Autoryzacja:
+- role
+- uprawnienia (działania i zasoby)
+
+Pierwszy użytkownik (z uprawnieniami admina) przez locahost. Następni już nie muszą być tak tworzeni.
+
+Role Based Access Control (RBAC)
+
+Built-in Roles - role wbudowane w bazę danych:
+- Database User
+- Database Admin
+- Cluster Admin
+- Backup/Restore
+- Super User
+
+userAdmin
+dbOwner
+dbAdmin
+
+db.grantRolesToUser("db",[{db:"playground",role:"dbOwner"}

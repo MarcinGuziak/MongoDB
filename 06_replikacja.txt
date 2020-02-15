@@ -1,0 +1,1 @@
+Asynchroniczna statement-based (nie binarna) replikacja. 
