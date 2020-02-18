@@ -1,1 +1,17 @@
-Asynchroniczna statement-based (nie binarna) replikacja. 
+Asynchroniczna oparta na komunikatach (nie binarna) replikacja.
+
+Zbiór replik = Główna replika + Drugorzędne repliki + Arbiter
+
+Arbiter - ta replika nie przetrzymuje danych, nie może zostać główną repliką
+
+1 GR + 3 DR - podtsawowy zestaw
+Tylko 7 DR może zostać wybranych w głosowaniu
+
+Ukryta replika
+Opóźniona replika
+
+Oplog - Operations Log (log z operacjami)
+
+Protokoly replikacji:
+- PV1 (Protocol Version 1) - domyślny protokół oparty na protokole RAFT
+- PV0 (Protocol Version 0)

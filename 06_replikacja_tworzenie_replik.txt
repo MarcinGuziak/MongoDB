@@ -1,0 +1,125 @@
+/ Tworzymy node1.conf o następujących danych
+
+storage:
+  dbPath: /var/mongodb/db/node1
+net:
+  bindIp: 192.168.103.100,localhost
+  port: 27011
+security:
+  authorization: enabled
+  keyFile: /var/mongodb/pki/m103-keyfile
+systemLog:
+  destination: file
+  path: /var/mongodb/db/node1/mongod.log
+  logAppend: true
+processManagement:
+  fork: true
+replication:
+  replSetName: m103-example
+
+/ Tworzymy folder dla głównej repliki
+
+mkdir -p /var/mongodb/db/node1
+
+/ Tworzymy keyfile
+
+sudo mkdir -p /var/mongodb/pki/
+sudo chown vagrant:vagrant /var/mongodb/pki/
+openssl rand -base64 741 > /var/mongodb/pki/m103-keyfile
+chmod 400 /var/mongodb/pki/m103-keyfile
+
+/ Uruchamiamy główną replikę
+
+mongod -f node1.conf
+
+/ Kopiujemy node1.conf do node2.conf i node3.conf
+
+cp node1.conf node2.conf
+cp node2.conf node3.conf
+
+/ Edytujemy node2.conf
+
+storage:
+  dbPath: /var/mongodb/db/node2
+net:
+  bindIp: 192.168.103.100,localhost
+  port: 27012
+security:
+  keyFile: /var/mongodb/pki/m103-keyfile
+systemLog:
+  destination: file
+  path: /var/mongodb/db/node2/mongod.log
+  logAppend: true
+processManagement:
+  fork: true
+replication:
+  replSetName: m103-example
+
+/ Edytujemy node3.conf
+
+storage:
+  dbPath: /var/mongodb/db/node3
+net:
+  bindIp: 192.168.103.100,localhost
+  port: 27013
+security:
+  keyFile: /var/mongodb/pki/m103-keyfile
+systemLog:
+  destination: file
+  path: /var/mongodb/db/node3/mongod.log
+  logAppend: true
+processManagement:
+  fork: true
+replication:
+  replSetName: m103-example
+
+/ Tworzymy ścieżki dla node2 i node 3
+
+mkdir /var/mongodb/db/node2
+mkdir /var/mongodb/db/node3
+
+/ Uruchamiamy node2 i node3
+
+mongod -f node2.conf
+mongod -f node3.conf
+
+/ Uruchamiamy mongo
+
+mongo --port 27011
+
+/ Inicjujemy zestaw replik
+
+rs.initiate()
+
+/ Tworzymy superużytkownika i łąćzymy się ponownie
+
+use admin
+
+db.createUser({
+  user: "m103-admin",
+  pwd: "m103-pass",
+  roles: [
+    {role: "root", db: "admin"}
+  ]
+})
+
+exit
+
+mongo --host "m103-example/192.168.103.100:27011" -u "m103-admin" -p "m103-pass" --authenticationDatabase "admin"
+
+/ Status repliki
+
+rs.status()
+
+/ Dodanie innych replik
+
+rs.add("m103:27012")
+rs.add("m103:27013")
+
+/ Topologia
+
+rs.isMaster()
+
+/ Zmiana głównej repliki
+
+rs.stepDown()
