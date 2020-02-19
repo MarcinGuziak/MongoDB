@@ -1,4 +1,4 @@
-/ Tworzymy node1.conf o następujących danych
+/ Tworzymy node1.conf
 
 storage:
   dbPath: /var/mongodb/db/node1

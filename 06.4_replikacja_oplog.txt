@@ -1,0 +1,17 @@
+db local /collections
+
+me
+oplog.rs
+replset.election
+replset.minvalid
+startup_log
+system.replset
+system.rollback.id
+
+use local
+db.oplog.rs.find()
+var stats = db.oplog.rs.stats()
+stats.capped
+stats.size
+stats.maxSize
+rs.printReplicationInfo()

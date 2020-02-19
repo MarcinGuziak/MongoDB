@@ -1,0 +1,20 @@
+db local / collections
+Nie zmieniać.
+
+Wszystkie kolekcje w local nie są replikowane.
+
+me
+oplog.rs		# odpowiada za poprawną replikację
+replset.election
+replset.minvalid
+startup_log
+system.replset
+system.rollback.id
+
+use local
+db.oplog.rs.find()
+var stats = db.oplog.rs.stats()
+stats.capped
+stats.size
+stats.maxSize
+rs.printReplicationInfo()

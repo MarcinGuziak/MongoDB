@@ -1,0 +1,25 @@
+Konfiguracja zawarta w dokumencie BSON.
+
+rs.add
+rs.initiate
+rs.remove
+rs.reconfig
+rs.config
+rs.status()
+rs.isMaster()
+db.serverStatus()['repl']	# rs.status() + RBID
+rs.printReplicationInfo()
+
+_id: m103-example,
+version: <int>,			# inkrementacja kolejnej zmiany konfiguracji
+members: [
+	{
+	_id: 1
+	host: m103:27017,
+	arbiterOnly: false,	# true = priority: 0
+	hidden: false,		# true = priority: 0
+	priority: 1,		# 0-1000, 0 - nigdy nie będzie repliką główną
+	slaveDelay: 0		# opóźnienie w sekundach
+	},
+	]
+
