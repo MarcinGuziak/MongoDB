@@ -1,7 +1,10 @@
-db local /collections
+db local / collections
+Nie zmieniać.
+
+Wszystkie kolekcje w local nie są replikowane.
 
 me
-oplog.rs
+oplog.rs		# odpowiada za poprawną replikację
 replset.election
 replset.minvalid
 startup_log
