@@ -1,2 +1,7 @@
 # MongoDB
-# pierwsze wpisy
+# informacje podstawowe
+# typy
+# zapytania
+# operatory
+# administracja
+# replikacja

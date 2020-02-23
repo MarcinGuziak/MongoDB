@@ -115,6 +115,17 @@ rs.status()
 
 rs.add("m103:27012")
 rs.add("m103:27013")
+rs.addARB("m103:27014")
+
+/ Zmiana konfiguracji (za pomocą zmiennej)
+
+cfg = rs.conf()
+cfg.members[3].votes = 0	# zmiana w trzeciej replice
+rs.reconfig(cfg)
+
+/ Usuwanie repliki
+
+rs.remove("m103:27014")
 
 / Topologia
 

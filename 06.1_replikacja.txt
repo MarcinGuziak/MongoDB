@@ -15,3 +15,24 @@ Oplog - Operations Log (log z operacjami)
 Protokoly replikacji:
 - PV1 (Protocol Version 1) - domyślny protokół oparty na protokole RAFT
 - PV0 (Protocol Version 0)
+
+Write Concern:
+- wtimeout:<int> - czas, po którym zapis uznajemy za nieudany
+- j:<t|f> - notka o zapisie w dzienniku
+
+Read Concern Levels:
+- local
+- available (sharded clusters)
+- majority
+- linearizable
+
+FAST & LATEST - local / available
+FAST & SAFE - majority
+LATEST & SAFE - linearizable
+
+Read Preferences:
+- primary
+- primaryPreferred
+- secondary
+- secondarePreferred
+- nearest

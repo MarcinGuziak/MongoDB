@@ -9,6 +9,7 @@ rs.status()
 rs.isMaster()
 db.serverStatus()['repl']	# rs.status() + RBID
 rs.printReplicationInfo()
+rs.slaveOk()			# możliwość odczytu z drugorzędnej repliki
 
 _id: m103-example,
 version: <int>,			# inkrementacja kolejnej zmiany konfiguracji
